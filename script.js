@@ -1,6 +1,21 @@
 document.getElementById('connect-button').addEventListener('click', async () => {
     try {
-        const device = await navigator.usb.requestDevice({ filters: [{ vendorId: 0x18d1 }] });
+        console.log('Requesting USB device...');
+        const filters = [
+            { vendorId: 0x18d1 }, // Google Inc.
+            { vendorId: 0x04e8 }, // Samsung Electronics Co., Ltd
+            { vendorId: 0x12d1 }, // Huawei Technologies Co., Ltd.
+            { vendorId: 0x2a70 }, // OnePlus Technology (Shenzhen) Co., Ltd.
+            { vendorId: 0x22b8 }, // Motorola PCS
+            { vendorId: 0x0fce }, // Sony Ericsson Mobile Communications AB
+            { vendorId: 0x05c6 }, // Qualcomm, Inc.
+            { vendorId: 0x2c7c }, // Quectel Wireless Solutions Co., Ltd.
+            { vendorId: 0x2717 }, // Xiaomi Inc.
+            { vendorId: 0x0bb4 }  // HTC (High Tech Computer Corp.)
+        ];
+        const device = await navigator.usb.requestDevice({ filters });
+        console.log('Device selected:', device);
+
         const adb = new Adb(device);
         await adb.connect();
         alert('Connected to device!');
