@@ -16,6 +16,11 @@ h1 {
     font-size: 16px;
 }
 
+#connect-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
 #app-list-container {
     margin-top: 20px;
 }
@@ -28,17 +33,127 @@ h1 {
 #app-list li {
     background-color: #fff;
     margin: 10px 0;
-    padding: 10px;
+    padding: 10px 15px;
     border: 1px solid #ccc;
+    border-radius: 4px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 15px;
+    transition: background-color 0.2s;
+}
+
+#app-list li:hover {
+    background-color: #f8f8f8;
+    border-color: #999;
 }
 
 button.uninstall-button {
     background-color: #ff4d4d;
     color: white;
     border: none;
-    padding: 5px 10px;
+    border-radius: 4px;
+    padding: 8px 12px;
     cursor: pointer;
+    flex-shrink: 0;
+    transition: background-color 0.2s;
+}
+
+button.uninstall-button:hover {
+    background-color: #ff3333;
+}
+
+button.uninstall-button:active {
+    background-color: #e60000;
+}
+
+#console-container {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+    font-family: monospace;
+}
+
+#console-output {
+    height: 300px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+    white-space: pre-wrap;
+}
+
+.console-input-container {
+    display: flex;
+    align-items: center;
+}
+
+.prompt {
+    color: #4CAF50;
+    margin-right: 5px;
+}
+
+#console-input {
+    flex: 1;
+    background-color: transparent;
+    border: none;
+    color: #ffffff;
+    font-family: monospace;
+    outline: none;
+}
+
+.instructions {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.instructions ol {
+    margin: 0;
+    padding-left: 25px;
+}
+
+.instructions li {
+    padding: 8px 0;
+    color: #333;
+    line-height: 1.5;
+}
+
+#connection-status {
+    margin: 15px 0;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+#connection-status.error {
+    background-color: #ffebee;
+    color: #c62828;
+}
+
+#connection-status.success {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+
+.spinner {
+    width: 24px;
+    height: 24px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 10px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#app-filter:disabled {
+    background-color: #f5f5f5;
+    cursor: not-allowed;
 }

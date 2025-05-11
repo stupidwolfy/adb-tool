@@ -8,12 +8,32 @@
 </head>
 <body>
     <h1>Web ADB Android App Manager</h1>
-    <button id="connect-button">Connect to Device</button>
+    <div class="instructions">
+        <ol>
+            <li>Enable USB debugging on phone</li>
+            <li>Connect android phone</li>
+            <li>Press Connect to Device and select your phone in popup</li>
+            <li>Allow USB debugging on your phone</li>
+        </ol>
+        <ul>
+            <li>Supported Browser: Chrome</li>
+        </ul>
+        <button id="connect-button">Connect to Device</button>
+    </div>
+
+    <div id="connection-status" style="display: none; text-align: center; margin: 10px 0;">
+        <p id="status-message"></p>
+        <div class="spinner" style="display: none;"></div>
+    </div>
+
+    <div class="search-container">
+        <input type="text" id="app-filter" placeholder="Search apps..." />
+    </div>
     <div id="app-list-container">
         <h2>Installed Apps</h2>
         <ul id="app-list"></ul>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/webadb@latest/dist/webadb.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/webadb/webadb.js@master/webadb.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
